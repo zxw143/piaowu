@@ -1,0 +1,9 @@
+.ticket .qr { padding: 0; display: grid; place-items: center; }
+.ticket .qr img { display: block; width: min(100%, 60px); height: auto; }
+.ticket .qr img:not([src]) { visibility: hidden; }
+#qr-dialog { width: min(360px, calc(100% - 32px)); text-align: center; }
+#qr-dialog img { display: block; width: min(240px, 100%); aspect-ratio: 1; margin: auto; }
+#qr-dialog img:not([src]) { visibility: hidden; }
+#manual-code { font-family: ui-monospace, monospace; }
+#open-qr { display: block; min-height: 44px; margin: 8px 0; padding: 8px 14px; border: 1px solid #75634b; border-radius: 20px; background: transparent; color: #f8edda; }
+#open-qr[hidden] { display: none; }

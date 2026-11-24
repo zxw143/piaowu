@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>票務後台｜醉龍</title>
+  <link rel="stylesheet" href="/assets/app.css">
+  <script src="/staff/decoder.js" defer></script>
+  <script type="module" src="/assets/staff.js"></script>
+</head>
+<body>
+  <main class="dashboard">
+    <header class="bar">
+      <h1>《醉龍》票務後台</h1>
+      <div class="actions"><span id="account" class="muted"></span><button id="logout" type="button">登出</button></div>
+    </header>
+    <p id="page-feedback" class="feedback" role="status"></p>
+    <div class="columns">
+      <section class="panel stack">
+        <h2>驗票</h2>
+        <div class="actions">
+          <button id="camera-start" type="button" class="primary">開啟相機</button>
+          <button id="camera-stop" type="button" hidden>關閉相機</button>
+          <button id="camera-next" type="button" class="primary" hidden>掃下一張</button>
+        </div>
+        <video id="camera" autoplay playsinline muted hidden></video>
+        <form id="redeem" class="stack">
+          <label>手輸票號<input name="code" placeholder="例：A1B2-C3D4-E5F6" autocapitalize="characters" autocomplete="off" maxlength="32" required></label>
+          <button type="submit">核銷</button>
+        </form>
+        <p id="redeem-result" class="feedback" role="status"></p>
+      </section>
+      <section class="panel stack">
+        <h2>添加嘉賓</h2>
+        <form id="issue" class="stack">
+          <label>嘉賓姓名<input name="guest" required maxlength="80"></label>
+          <label>備註（選填）<textarea name="note" rows="2" maxlength="300"></textarea></label>
+          <button type="submit" class="primary">生成邀請票</button>
+        </form>
+        <p id="issue-result" class="feedback" role="status"></p>
+        <div id="new-link" hidden>
+          <label>邀請連結<input id="issued-url" type="url" readonly></label>
+          <button id="copy-new" type="button">複製連結</button>
+        </div>
+      </section>
+    </div>
+    <section class="panel stack ticket-list">
+      <div class="bar"><h2>嘉賓名單</h2><button id="refresh" type="button">重新整理</button></div>
+      <p id="list-status" class="muted" role="status"></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">姓名</th><th scope="col">備註</th><th scope="col">票號</th><th scope="col">驗票狀態</th><th scope="col">邀請票</th></tr></thead>
+          <tbody id="tickets"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

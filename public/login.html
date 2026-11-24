@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>工作人員登入｜醉龍</title>
+  <link rel="stylesheet" href="/assets/app.css">
+  <script type="module" src="/assets/login.js"></script>
+</head>
+<body class="centered">
+  <main class="panel narrow">
+    <h1>工作人員登入</h1>
+    <form id="login" class="stack">
+      <label>帳號<input name="username" autocomplete="username" required maxlength="32"></label>
+      <label>密碼<input name="password" type="password" autocomplete="current-password" required maxlength="128"></label>
+      <button type="submit" class="primary">登入</button>
+      <p id="result" class="feedback" role="status"></p>
+    </form>
+  </main>
+</body>
+</html>
